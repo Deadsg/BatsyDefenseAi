@@ -318,3 +318,8 @@ classification_rep = classification_report(y_test, y_pred)
 print(f"Accuracy: {accuracy}")
 print("\nClassification Report:\n", classification_rep)
 
+python run discord.python
+
+bash
+python simpledicordbot.py
+
