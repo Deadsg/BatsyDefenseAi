@@ -195,6 +195,6 @@ intents.presences = max_features
 client = discord.Client(intents=intents)
 
 # Set your OpenAI API key here
-openai.api_key = ""
+openai.api_key = "sk-n0w7IuoLWGJpoWB4FbzfT3BlbkF"
 
 
