@@ -320,6 +320,8 @@ print("\nClassification Report:\n", classification_rep)
 
 python run discord.python
 
+
 bash
-python simpledicordbot.py
+run
+python simplediscordbot.py
 
