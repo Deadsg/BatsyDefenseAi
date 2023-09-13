@@ -1,5 +1,5 @@
-import cagi 
-import CAGI         
+import cagi
+import CAGI
 import discord
 from discord.ext import commands
 import gym
@@ -14,7 +14,8 @@ import onnx
 import onnxruntime
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import openai
- 
+import spacy
+
 cagi_agent = CAGI()
 
 # Set your OpenAI API key
@@ -51,8 +52,9 @@ acronym_dict = {
     "API": "Application Programming Interface",
 }
 
-user_input = message.content.split("!hello_batsy ")[1]
-gpt_response = cagi_agent.chat(user_input)
+# user_input = message.content.split("!hello_batsy ")[1] # This line is incomplete, it depends on a message object
+
+gpt_response = cagi_agent.chat("YOUR_INPUT_HERE")  # Replace YOUR_INPUT_HERE with actual input
 
 iris = load_iris()
 X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.2)
@@ -61,65 +63,75 @@ knn_classifier.fit(X_train, y_train)
 
 model = MobileNetV2(weights='imagenet')
 
+
 # Assuming you have trained a Q-learning agent
 def train_q_learning():
     # Define your Q-learning parameters and train the agent
     # ...
     return q_learning_agent
 
+
 # Train the Q-learning agent
 q_learning_agent = train_q_learning()
+
+Q(s, a) = (1 - alpha) * Q(s, a) + alpha * (reward + gamma * max_a Q(s', a'))
+
+acronym_dict = {
+        "AI": "Artificial Intelligence",
+    "ML": "Machine Learning",
+    "DL": "Deep Learning",
+    "NLP": "Natural Language Processing",
+    "API": "Application Programming Interface",
+}
 
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user.name}')
 
-bot = commands.Bot(command_prefix="!")
 
-def interpret_acronym(acronym, dict):
-  # function body
+# bot = commands.Bot(command_prefix="!") # Duplicate declaration, you can remove this line
+
+def interpret_acronym(acronym, dict):  # This line is incomplete, it depends on a message object
+# function body
 
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
         return
 
-        @bot.event  
+@bot.event
 async def on_message(message):
-  if message.content.startswith("!interpret"):
-     acronym = // get acronym
-     expanded = interpret_acronym(acronym, dict)
-
     if message.content.startswith("!interpret"):
         acronym = message.content.split("!interpret ")[1]
         expanded_form = interpret_acronym(acronym, acronym_dict)
         await message.channel.send(f"The expanded form of {acronym} is: {expanded_form}")
 
-        if acronym.upper() in ['AI', 'ML', 'DL', 'NLP', 'API']:
-            await message.channel.send(f"Do you want to interact with the Gym environment for {acronym.upper()}? (yes/no)")
+    if acronym.upper() in ['AI', 'ML', 'DL', 'NLP', 'API']:
+        await message.channel.send(f"Do you want to interact with the Gym environment for {acronym.upper()}? (yes/no)")
 
-            def check(msg):
-                return msg.author == message.author and msg.channel == message.channel
+        def check(msg):
+            return msg.author == message.author and msg.channel == message.channel
 
-            response = await bot.wait_for('message', check=check)
-            if response.content.lower() == 'yes':
-                interact_with_gym_environment()
+        response = await bot.wait_for('message', check=check)
+        if response.content.lower() == 'yes':
+            interact_with_gym_environment()
 
-            if acronym.upper() == 'AI':
-                image_path = 'path_to_your_image.jpg'
-                img = image.load_img(image_path, target_size=(224, 224))
-                img = image.img_to_array(img)
-                img = preprocess_input(img)
-                img = np.expand_dims(img, axis=0)
-                preds = model.predict(img)
-                decoded_preds = decode_predictions(preds, top=3)[0]
-                await message.channel.send("Top 3 predictions from MobileNetV2:")
-                for _, label, score in decoded_preds:
-                    await message.channel.send(f"{label}: {score}")
+        if acronym.upper() == 'AI':
+            image_path = 'path_to_your_image.jpg'
+            img = image.load_img(image_path, target_size=(224, 224))
+            img = image.img_to_array(img)
+            img = preprocess_input(img)
+            img = np.expand_dims(img, axis=0)
+            preds = model.predict(img)
+            decoded_preds = decode_predictions(preds, top=3)[0]
+            await message.channel.send("Top 3 predictions from MobileNetV2:")
+            for _, label, score in decoded_preds:
+                await message.channel.send(f"{label}: {score}")
 
-            if acronym.upper() == 'ML':
-                y_pred = knn_classifier.predict(X_test)
-                await message.channel.send(f"Predicted labels: {y_pred}")
+        if acronym.upper() == 'ML':
+            y_pred = knn_classifier.predict(X_test)
+            await message.channel.send(f"Predicted labels: {y_pred}")
+
 
 # Define A.C.R.O.N.Y.M.F.O.R.M.U.L.A
 class BATMANAI:
@@ -149,8 +161,10 @@ class BATMANAI:
         # Implement notification functionality
         pass
 
+
 # Initialize BATMANAI
 batman_ai = BATMANAI()
+
 
 # Define a function for chatting with the bot
 async def chat_with_bot(message):
@@ -161,8 +175,10 @@ async def chat_with_bot(message):
     else:
         await message.channel.send("I'll try to come up with a better response. Try asking me about an acronym.")
 
+
 # Initialize BATMANAI
 batman_ai = BATMANAI()
+
 
 @bot.event
 async def on_message(message):
@@ -186,7 +202,8 @@ async def on_message(message):
 
 
 # Initialize BATMANAI
-batman_ai = BATMANAI()
+    batman_ai = BATMANAI()
+
 
 @bot.event
 async def on_message(message):
@@ -207,15 +224,16 @@ async def on_message(message):
 
     # Record chat data
     batman_ai.record_chat(message.content)
-   
+
     @bot.command()
-async def reboot(ctx):
-    # Add any necessary reboot logic here
-    await ctx.send("Rebooting...")  # Example message, you can customize it
+    async def reboot(ctx):
+        # Add any necessary reboot logic here
+        await ctx.send("Rebooting...")  # Example message, you can customize it
 
-    # For example, you can reinitialize your bot or reset any necessary variables
+        # For example, you can reinitialize your bot or reset any necessary variables
 
-    # NOTE: Be careful with rebooting, as it will temporarily disconnect your bot.
+        # NOTE: Be careful with rebooting, as it will temporarily disconnect your bot.
+
 
 @bot.event
 async def on_message(message):
@@ -223,10 +241,10 @@ async def on_message(message):
         return
 
     if message.content.startswith("!interpret"):
-        # ... (existing code)
+        pass
 
     if message.content.startswith("!formulate"):
-        # ... (existing code)
+        pass
 
     if message.content.startswith("!reboot"):
         await reboot(message.channel)
@@ -234,16 +252,17 @@ async def on_message(message):
     # Record chat data
     batman_ai.record_chat(message.content)
 
+
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
         return
 
     if message.content.startswith("!interpret"):
-        # ... (existing code)
+        pass
 
     if message.content.startswith("!formulate"):
-        # ... (existing code)
+        pass
 
     if message.content.startswith("!create_ai"):
         acronym = message.content.split("!create_ai ")[1]
@@ -253,16 +272,17 @@ async def on_message(message):
     # Record chat data
     batman_ai.record_chat(message.content)
 
+
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
         return
 
     if message.content.startswith("!interpret"):
-        # ... (existing code)
+        pass
 
     if message.content.startswith("!formulate"):
-        # ... (existing code)
+        pass
 
     if message.content.startswith("!create_ai"):
         acronym = message.content.split("!create_ai ")[1]
@@ -302,6 +322,7 @@ async def total_reboot(ctx):
     # Restart the bot
     await bot.logout()
 
+
 # Add this command to your event loop
 @bot.event
 async def on_message(message):
@@ -316,7 +337,5 @@ async def on_message(message):
         gpt_response = chat_with_gpt(user_input)
         await message.channel.send(f"GPT-3.5 says: {gpt_response}")
 
-
-
 # Add your Discord bot token here
-bot.run('')
+bot.run('YOUR_DISCORD_TOKEN_HERE')  # Replace YOUR_DISCORD_TOKEN_HERE with your actual token

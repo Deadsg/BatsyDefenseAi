@@ -1,4 +1,72 @@
-import cagi
+import cagi 
+import CAGI
+import discord
+from discord.ext import commands
+import gym
+import numpy as np
+import tensorflow 
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+import openai
+
+# Initialize 
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix="!", intents=intents)
+cagi_agent = CAGI()
+openai.api_key = 'YOUR_API_KEY'
+
+# Helper functions
+def interpret_acronym(acronym, dict):
+  # function body
+  
+    def interact_with_gym():
+  # gym environment code
+
+# Load data
+        iris = load_iris()
+X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.2)
+knn_classifier = KNeighborsClassifier(n_neighbors=3)
+knn_classifier.fit(X_train, y_train)
+
+# Chatbot class
+class Chatbot:
+
+  def __init__(self):
+    self.chat_history = []
+    
+  def record_chat(self, message):
+    self.chat_history.append(message)
+    
+  # Other methods
+  
+chatbot = Chatbot()
+  
+# Bot events  
+@bot.event
+async def on_ready():
+  print("Ready!")
+  
+@bot.event  
+async def on_message(message):
+
+  if message.content.startswith("!interpret"):
+     pass
+     
+  if message.content.startswith("!interact"):
+     pass
+  
+  if message.content.startswith("!reboot")
+     pass
+
+  if message.content.startswith("!create_ai")
+     pass    
+  
+  if message.content.startswith("!formulated_expansion")
+     pass
+
+  chatbot.record_chat(message)
 
 class CAGI:
     def __init__(self):
@@ -182,25 +250,6 @@ async def on_message(message):
 
         # NOTE: Be careful with rebooting, as it will temporarily disconnect your bot
 
-@bot.command()
-async def total_reboot(ctx):
-    # Disconnect all users
-    for voice_channel in ctx.guild.voice_channels:
-        for member in voice_channel.members:
-            await member.move_to(None)
-    
-    # Disconnect all users from the voice channels
-    for voice_channel in ctx.guild.voice_channels:
-        await voice_channel.delete()
-    
-    # Disconnect all users from the text channels
-    for text_channel in ctx.guild.text_channels:
-        await text_channel.delete()
-
-    # Disconnect all users from the categories
-    for category_channel in ctx.guild.categories:
-        await category_channel.delete()
-
     # Restart the bot
     await bot.logout()
 
@@ -217,3 +266,4 @@ cagi = CAGI()
 cagi.learn("Machine Learning", "A type of artificial intelligence that allows a system to learn from data rather than through explicit programming.")
 print(cagi.query("Machine Learning"))
 
+bot.run("")
