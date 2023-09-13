@@ -1,0 +1,2 @@
+def getkey():
+    return "scrett"
