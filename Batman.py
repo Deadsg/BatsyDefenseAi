@@ -1,5 +1,7 @@
 import cagi
 import CAGI
+import trainq_module 
+import trainq
 import discord
 from discord.ext import commands
 import gym
@@ -52,7 +54,7 @@ acronym_dict = {
     "API": "Application Programming Interface",
 }
 
-# user_input = message.content.split("!hello_batsy ")[1] # This line is incomplete, it depends on a message object
+user_input = message.content.split("!hello_batsy ")[1] # This line is incomplete, it depends on a message object
 
 gpt_response = cagi_agent.chat("YOUR_INPUT_HERE")  # Replace YOUR_INPUT_HERE with actual input
 
@@ -63,6 +65,10 @@ knn_classifier.fit(X_train, y_train)
 
 model = MobileNetV2(weights='imagenet')
 
+def my_function():
+    return 10
+
+result = my_function()
 
 # Assuming you have trained a Q-learning agent
 def train_q_learning():
@@ -70,11 +76,10 @@ def train_q_learning():
     # ...
     return q_learning_agent
 
-
 # Train the Q-learning agent
 q_learning_agent = train_q_learning()
 
-Q(s, a) = (1 - alpha) * Q(s, a) + alpha * (reward + gamma * max_a Q(s', a'))
+Q(s, a) = (1 - alpha) * Q(s, a) + alpha * (reward + gamma * max_a)
 
 acronym_dict = {
         "AI": "Artificial Intelligence",
@@ -94,10 +99,10 @@ async def on_ready():
 def interpret_acronym(acronym, dict):  # This line is incomplete, it depends on a message object
 # function body
 
-@bot.event
-async def on_message(message):
-    if message.author == bot.user:
-        return
+    @bot.event
+    async def on_message(message):
+        if message.author == bot.user:
+            return
 
 @bot.event
 async def on_message(message):
