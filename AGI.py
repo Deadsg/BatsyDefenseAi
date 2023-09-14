@@ -16,10 +16,12 @@ import openai
 # Set your OpenAI API key
 openai.api_key = 'YOUR_OPENAI_API_KEY'
 
+def agi():
+
 intents = discord.Intents.default()
 intents.message_content = True
 
-bot = commands.Bot(command_prefix="!", intents=intents)
+bot = commands.BATMANAI(command_prefix="!", intents=intents)
 
 def interpret_acronym(acronym, acronym_dict):
     return acronym_dict.get(acronym.upper(), "Acronym not found in the dictionary.")
@@ -62,6 +64,8 @@ def train_q_learning():
 
 # Train the Q-learning agent
 q_learning_agent = train_q_learning()
+
+Q(s, a) = (1 - alpha) * Q(s, a) + alpha * (reward + gamma * max_a Q(s', a'))
 
 @bot.event
 async def on_ready():
@@ -191,7 +195,7 @@ async def on_message(message):
     batman_ai.record_chat(message.content)
    
     @bot.command()
-async def reboot(ctx):
+    async def reboot(ctx):
     # Add any necessary reboot logic here
     await ctx.send("Rebooting...")  # Example message, you can customize it
 
@@ -298,5 +302,47 @@ async def on_message(message):
         gpt_response = chat_with_gpt(user_input)
         await message.channel.send(f"GPT-3.5 says: {gpt_response}")
 
+# Define a function for chatting with GPT
+def chat_with_gpt(user_input):
+    response = openai.Completion.create(
+        engine="davinci", 
+        prompt=user_input, 
+        max_tokens=50, 
+        n=1, 
+        stop=None
+    )
+    return response.choices[0].text.strip(
+
+        def ai_Expander():
+    # Define your training logic here
+    pass
+
+class AIExpander:
+    def __init__(self, formula):
+        self.formula = formula
+
+    def expand_acronym(self, acronym):
+        return self.formula(acronym)
+
+def default_acronym_formula(acronym):
+    return f"{acronym} Intelligent Assistant"
+
+def custom_acronym_formula(acronym):
+    # Define your custom formula here
+    # For example, you might use a different concatenation pattern or add additional information.
+    return f"Artificial {acronym} Assistant"
+
+# Example Usage:
+expander = AIExpander(default_acronym_formula)
+
+# Generate AI for a specific acronym
+ai = expander.expand_acronym("AI")
+print(ai)  # Output: "AI Intelligent Assistant"
+
+# Example with a custom formula:
+expander = AIExpander(custom_acronym_formula)
+ai = expander.expand_acronym("ML")
+print(ai)  # Output: "Artificial ML Assistant"
+
 # Add your Discord bot token here
-bot.run('MTE0NjkwNDk2Nzc2NTA1MzQ2MA.GegyOP.eYmmzoKhzbJ14YbzaOHtEkph-z_AmbkTmHawO8')
+bot.run('')

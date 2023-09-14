@@ -1,3 +1,4 @@
+import agi
 import cagi 
 import CAGI
 import discord
@@ -95,6 +96,14 @@ print(cagi.query("Robotics"))
 class BATMANAI:
     def __init__(self):
         self.chat_history = []  # Initialize an empty list to store chat data
+
+    def ():
+    # Define your training logic here
+    pass
+
+    def Cagi():
+    # Define your training logic here
+    pass
 
     def record_chat(self, message):
         self.chat_history.append(message)  # Add the message to the chat history

@@ -4,6 +4,19 @@ def ai_Expander():
     # Define your training logic here
     pass
 
+def ai_expander(acronym):
+    ai_dict = {
+        "AI": "Artificial Intelligence",
+        "ML": "Machine Learning",
+        "DL": "Deep Learning",
+        "NLP": "Natural Language Processing",
+        "API": "Application Programming Interface",
+        # Add more acronyms and expansions as needed
+    }
+
+    expanded_form = ai_dict.get(acronym.upper(), f"Expansion not found for {acronym}")
+    return expanded_form
+
 class AIExpander:
     def __init__(self, formula):
         self.formula = formula

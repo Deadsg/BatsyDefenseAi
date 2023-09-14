@@ -1,7 +1,8 @@
+import agi
 import cagi
 import CAGI
 import trainq_module 
-import trainq
+import Trainq
 import discord
 from discord.ext import commands
 import gym
@@ -341,6 +342,37 @@ async def on_message(message):
         user_input = message.content.split("!hello_batsy ")[1]
         gpt_response = chat_with_gpt(user_input)
         await message.channel.send(f"GPT-3.5 says: {gpt_response}")
+
+def ai_Expander():
+    # Define your training logic here
+    pass
+
+class AIExpander:
+    def __init__(self, formula):
+        self.formula = formula
+
+    def expand_acronym(self, acronym):
+        return self.formula(acronym)
+
+def default_acronym_formula(acronym):
+    return f"{acronym} Intelligent Assistant"
+
+def custom_acronym_formula(acronym):
+    # Define your custom formula here
+    # For example, you might use a different concatenation pattern or add additional information.
+    return f"Artificial {acronym} Assistant"
+
+# Example Usage:
+expander = AIExpander(default_acronym_formula)
+
+# Generate AI for a specific acronym
+ai = expander.expand_acronym("AI")
+print(ai)  # Output: "AI Intelligent Assistant"
+
+# Example with a custom formula:
+expander = AIExpander(custom_acronym_formula)
+ai = expander.expand_acronym("ML")
+print(ai)  # Output: "Artificial ML Assistant"
 
 # Add your Discord bot token here
 bot.run('YOUR_DISCORD_TOKEN_HERE')  # Replace YOUR_DISCORD_TOKEN_HERE with your actual token
