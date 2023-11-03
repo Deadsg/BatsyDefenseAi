@@ -454,4 +454,4 @@ easter_egg_bosses = {
     # Add more easter egg bosses as needed
 }
 
-bot.run('MTE2OTc1MDE4MjgwNDU5ODgyNA.Gs5aDB.jQZqZfiHFMo05Vwjj5fYxXBzN1oPhsG-Gh5E0o')
+bot.run('')
