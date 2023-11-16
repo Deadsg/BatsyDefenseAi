@@ -170,7 +170,7 @@ async def on_message(message):
     if message.content.startswith('!hello'):
         await message.channel.send('Hello!')
 
-client.run('MTE0NjkwNDk2Nzc2NTA1MzQ2MA.GfKac2.HiGYOK0g8ocZBoqNt-kyXGEtstW4OsO7JJZbKg')
+client.run('')
 
 python discord_bot.py
 
