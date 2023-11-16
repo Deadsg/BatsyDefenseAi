@@ -65,7 +65,7 @@ onnx_model = onnx.export(pytorch_model, ...)
 const Discord=require('discord.py');
 const client = new Discord.Client();
 
-client.login(MTE0NjkwNDk2Nzc2NTA1MzQ2MA.GfKac2.HiGYOK0g8ocZBoqNt-kyXGEtstW4OsO7JJZbKg);
+client.login();
 #Replace 'YOUR_BOT_TOKEN' with the token you copied earlier.
 
 intents = discord.Intents.default()
