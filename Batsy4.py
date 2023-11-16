@@ -192,7 +192,7 @@ intents.presences = max_features
 client = discord.Client(intents=intents)
 
 # Set your OpenAI API key here
-openai.api_key = "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"
+openai.api_key = ""
 
 # Define the bot's prefix and command
 BOT_PREFIX = "!"
@@ -222,7 +222,7 @@ async def on_message(message):
         await message.channel.send(response.choices[0].text)
 
         # Run the bot
-client.run(os.getenv(MTE0NjkwNDk2Nzc2NTA1MzQ2MA.GoiSsO.lx34OI2aYPIXNw8fKz0TBoyisGAMxvIGgx1dKU))  # Use your bot token here
+client.run(os.getenv())  # Use your bot token here
 
 python discord_bot.py
 
