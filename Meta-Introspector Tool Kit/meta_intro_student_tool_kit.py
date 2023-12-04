@@ -123,7 +123,7 @@ class SimpleChatbot:
             self.chat_data['responses'].append({"role": "assistant", "content": assistant_response})
 
 if __name__ == "__main__":
-    api_key = "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"
+    api_key = ""
     chatbot = SimpleChatbot(api_key=api_key)
 
     print('Meta_Introspecteror: This is the Meta_Introspecotr Cli Tool_Kit for Model Buidling, Toeknization and Training.')
